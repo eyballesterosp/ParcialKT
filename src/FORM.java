@@ -45,6 +45,7 @@ public class FORM extends JFrame {
         botonDivision.setBounds(300, 190, 90, 30);
         labelResultado.setBounds(50, 260, 110, 30);
         labelResultado2.setBounds(150, 260, 60, 30);
+        //ESTE ES UN EJEMPLO
 
         botonSuma.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
