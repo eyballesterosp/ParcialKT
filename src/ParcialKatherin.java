@@ -1,5 +1,6 @@
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -28,7 +29,6 @@ public class ParcialKatherin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jOptionPane1 = new javax.swing.JOptionPane();
         label_ciudad = new javax.swing.JLabel();
         label_valor = new javax.swing.JLabel();
         label_peso = new javax.swing.JLabel();
@@ -87,7 +87,7 @@ public class ParcialKatherin extends javax.swing.JFrame {
             }
         });
 
-        label_resultado.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
+        label_resultado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label_resultado.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -105,7 +105,9 @@ public class ParcialKatherin extends javax.swing.JFrame {
                             .addComponent(label_peso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(texto_ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(texto_ciudad)
+                                .addGap(129, 129, 129))
                             .addComponent(texto_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -114,13 +116,14 @@ public class ParcialKatherin extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(label_kg)
                                 .addGap(48, 48, 48)
-                                .addComponent(boton_salir)))))
+                                .addComponent(boton_salir)))
+                        .addGap(44, 44, 44)))
                 .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_ciudad)
                     .addComponent(texto_ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -142,7 +145,7 @@ public class ParcialKatherin extends javax.swing.JFrame {
                         .addComponent(boton_salir)))
                 .addGap(26, 26, 26)
                 .addComponent(label_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -155,6 +158,7 @@ public class ParcialKatherin extends javax.swing.JFrame {
     private void texto_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto_valorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_texto_valorActionPerformed
+    
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo.png"));
@@ -169,11 +173,14 @@ public class ParcialKatherin extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_salirActionPerformed
 
     private void boton_validarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_validarActionPerformed
-        // TODO add your handling code here:
+        // El String se configura con codigo <html> ya que de esta manera permite utilizar varias lineas en un solo label y el codigo <center> permite mostrar el texto centrado
+        String resultado = "<html><center>El valor del envío por " + texto_valor.getText() + " de la ciudad de " + 
+                texto_ciudad.getText() + " tiene un peso de " + texto_peso.getText() + label_kg.getText()+"<center></html>";
+        //Con el metodo .equals se compara el campo con un espacio vacio y el simbolo || indica la funcion logica "O"
         if (texto_ciudad.getText().equals("") || texto_valor.getText().equals("") || texto_peso.getText().equals("")) {
             label_resultado.setText("Faltan Datos");
         } else {
-            label_resultado.setText("El valor del envío por " + texto_valor.getText() + ",<br> de la ciudad de " + texto_ciudad.getText() + ",\n tiene un peso de " + texto_peso.getText() + label_kg.getText());
+            label_resultado.setText(resultado);
         }
     }//GEN-LAST:event_boton_validarActionPerformed
 
@@ -215,7 +222,6 @@ public class ParcialKatherin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_salir;
     private javax.swing.JButton boton_validar;
-    private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JLabel label_ciudad;
     private javax.swing.JLabel label_kg;
     private javax.swing.JLabel label_peso;
